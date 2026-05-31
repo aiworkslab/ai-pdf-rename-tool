@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import filedialog
+import os
 
 # メインウィンドウを非表示
 root = tk.Tk()
@@ -15,6 +16,10 @@ pdf_file = filedialog.askopenfilename(
 if pdf_file:
     print("選択したファイル:")
     print(pdf_file)
+
+    file_name = os.path.basename(pdf_file)
+    print("\nファイル名だけ:")
+    print(file_name)
 else:
     print("PDFが選択されませんでした。")
 
