@@ -16,7 +16,7 @@ pdf_file = filedialog.askopenfilename(
 if pdf_file:
     print("選択したファイル:")
     print(pdf_file)
-
+    
     file_name = os.path.basename(pdf_file)
 
     new_file_name = "20260601_" + file_name
