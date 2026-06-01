@@ -18,8 +18,11 @@ if pdf_file:
     print(pdf_file)
 
     file_name = os.path.basename(pdf_file)
-    print("\nファイル名だけ:")
-    print(file_name)
+
+    new_file_name = "20260601_" + file_name
+
+    print("\n変更後ファイル名:")
+    print(new_file_name)
 else:
     print("PDFが選択されませんでした。")
 
