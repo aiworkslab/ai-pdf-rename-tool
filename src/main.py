@@ -1,3 +1,4 @@
+from pathlib import Path
 import tkinter as tk
 from tkinter import filedialog
 import os
@@ -20,6 +21,11 @@ if pdf_file:
     file_name = os.path.basename(pdf_file)
 
     new_file_name = "20260601_" + file_name
+
+    pdf_path = Path(pdf_file)
+    new_file_path = pdf_path.parent / new_file_name
+
+    pdf_path.rename(new_file_path)
 
     print("\n変更後ファイル名:")
     print(new_file_name)
