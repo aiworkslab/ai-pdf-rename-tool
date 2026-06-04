@@ -28,10 +28,21 @@ if pdf_file:
     pdf_path = Path(pdf_file)
     new_file_path = pdf_path.parent / new_file_name
 
-    pdf_path.rename(new_file_path)
+    print("\n変更前ファイル名:")
+    print(file_name)
 
     print("\n変更後ファイル名:")
     print(new_file_name)
+
+    answer = input(f"この名前でリネームしますか？ y/n: ")
+
+    if answer == "y":
+        pdf_path.rename(new_file_path)
+        print("\nリネーム完了:")
+        print(new_file_name)
+    else:
+        print("\nリネームをキャンセルしました。")
+
 else:
     print("PDFが選択されませんでした。")
 
