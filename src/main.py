@@ -1,7 +1,7 @@
 from datetime import datetime
 from pathlib import Path
 import tkinter as tk
-from tkinter import filedialog
+from tkinter import filedialog, messagebox
 import os
 
 
@@ -34,14 +34,16 @@ if pdf_file:
     print("\n変更後ファイル名:")
     print(new_file_name)
 
-    answer = input(f"この名前でリネームしますか？ y/n: ")
+    answer = messagebox.askyesno(
+        "確認",
+        f"この名前でリネームしますか？\n\n{new_file_name}"
+    )
 
-    if answer == "y":
+    if answer:
         pdf_path.rename(new_file_path)
-        print("\nリネーム完了:")
-        print(new_file_name)
+        print("リネームしました。")
     else:
-        print("\nリネームをキャンセルしました。")
+        print("リネームをキャンセルしました。")
 
 else:
     print("PDFが選択されませんでした。")
