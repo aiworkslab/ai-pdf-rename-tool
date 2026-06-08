@@ -1,3 +1,19 @@
+## Current Version
+
+v0.6
+
+- Date auto acquisition
+- Rename confirmation dialog
+- Rename completion dialog
+
+- ## 現在のバージョン
+
+v0.6
+
+- 日付自動取得
+- リネーム確認ダイアログ
+- リネーム完了ダイアログ
+
 # AI PDF Rename Tool
 
 業務用PDFを自動で整理・リネームするためのツールです。
@@ -14,7 +30,6 @@ This tool helps rename and organize business PDF documents.
 - 請求書・見積書・納品書への対応
 - OCRによる文字抽出
 - AIによる会社名・日付・書類種別の抽出
-- GUI対応
 - EXE配布
 
 ## 開発状況
