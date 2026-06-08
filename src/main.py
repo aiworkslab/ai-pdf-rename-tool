@@ -42,10 +42,16 @@ if pdf_file:
     if answer:
         pdf_path.rename(new_file_path)
         print("リネームしました。")
+        messagebox.showinfo("完了",
+                            "リネーム完了")
     else:
         print("リネームをキャンセルしました。")
+        messagebox.showinfo("キャンセル",
+                   "リネームをキャンセルしました。")
 
 else:
     print("PDFが選択されませんでした。")
+    messagebox.showinfo("未選択",
+                        "PDFが選択されませんでした。")
 
-input("Press Enter to exit...")
+# input("Press Enter to exit...")
