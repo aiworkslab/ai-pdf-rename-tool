@@ -21,3 +21,23 @@ This tool helps rename and organize business PDF documents.
 
 現在開発中です。
 まずは小さく動く版を作成し、少しずつ機能を追加していきます。
+
+## Features
+
+- Select a PDF file with a file dialog
+- Automatically add today's date (YYYYMMDD)
+- Preview the new filename before renaming
+- Confirmation dialog before rename
+- Completion message after rename
+- Simple and beginner-friendly Python code
+
+## 機能
+
+- PDFファイルをダイアログで選択
+- 今日の日付（YYYYMMDD）を自動取得
+- リネーム後のファイル名を事前確認
+- リネーム前に確認ダイアログを表示
+- リネーム完了メッセージを表示
+- Python初心者でも理解しやすい構成
+
+<img width="282" height="202" alt="image" src="https://github.com/user-attachments/assets/6aefa341-8cf5-4cda-a342-2517c08e6e05" />
