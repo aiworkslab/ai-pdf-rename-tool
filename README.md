@@ -1,7 +1,5 @@
 ## Update History
 
-## Current Version
-
 ### v0.7
 
 - Added duplicate filename check
