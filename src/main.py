@@ -34,20 +34,28 @@ if pdf_file:
     print("\n変更後ファイル名:")
     print(new_file_name)
 
-    answer = messagebox.askyesno(
-        "確認",
-        f"この名前でリネームしますか？\n\n{new_file_name}"
-    )
-
-    if answer:
-        pdf_path.rename(new_file_path)
-        print("リネームしました。")
-        messagebox.showinfo("完了",
-                            "リネーム完了")
+    if new_file_path.exists():
+        messagebox.showerror(
+            "エラー",
+            "同じ名前のファイルが存在します。"
+        )
+        print("同じ名前のファイルが存在します。")
     else:
-        print("リネームをキャンセルしました。")
-        messagebox.showinfo("キャンセル",
-                   "リネームをキャンセルしました。")
+
+        answer = messagebox.askyesno(
+            "確認",
+            f"この名前でリネームしますか？\n\n{new_file_name}"
+        )
+
+        if answer:
+            pdf_path.rename(new_file_path)
+            print("リネームしました。")
+            messagebox.showinfo("完了",
+                                "リネーム完了")
+        else:
+            print("リネームをキャンセルしました。")
+            messagebox.showinfo("キャンセル",
+                    "リネームをキャンセルしました。")
 
 else:
     print("PDFが選択されませんでした。")
