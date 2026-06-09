@@ -1,5 +1,7 @@
 ## Update History
 
+## Current Version
+
 ### v0.7
 
 - Added duplicate filename check
@@ -9,8 +11,6 @@
 
 - 同名ファイルチェック機能追加
 - 同名ファイル存在時のエラーメッセージ追加
-
-## Current Version
 
 ### v0.6
 
