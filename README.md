@@ -1,26 +1,27 @@
 ## Update History
 
+v0.8
+
+- Added multiple PDF selection support
+- Process selected PDF files one by one
+
+- 複数PDF選択機能追加
+- 選択したPDFを1つずつ処理
+
 ### v0.7
 ### English
 
 - Added duplicate filename check
 - Show error message when filename already exists
 
-### v0.7
-### 日本語
-
 - 同名ファイルチェック機能追加
 - 同名ファイル存在時のエラーメッセージ追加
 
 ### v0.6
-### English
 
 - Date auto acquisition
 - Rename confirmation dialog
 - Rename completion dialog
-
-### v0.6
-### 日本語
 
 - 日付自動取得
 - リネーム確認ダイアログ
