@@ -1,14 +1,26 @@
-## Current Version
+## Update History
 
-v0.6
+### v0.7
+### English
+
+- Added duplicate filename check
+- Show error message when filename already exists
+
+### v0.7
+### 日本語
+
+- 同名ファイルチェック機能追加
+- 同名ファイル存在時のエラーメッセージ追加
+
+### v0.6
+### English
 
 - Date auto acquisition
 - Rename confirmation dialog
 - Rename completion dialog
 
-- ## 現在のバージョン
-
-v0.6
+### v0.6
+### 日本語
 
 - 日付自動取得
 - リネーム確認ダイアログ
