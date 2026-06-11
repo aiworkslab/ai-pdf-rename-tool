@@ -1,5 +1,15 @@
 ## Update History
 
+v0.9
+
+- Added rename result summary
+- Count successful, canceled, and error results
+- Show final result message after processing multiple PDF files
+
+- リネーム結果サマリー追加
+- 成功・キャンセル・エラー件数を集計
+- 複数PDF処理後に最終結果を表示
+
 v0.8
 
 - Added multiple PDF selection support
