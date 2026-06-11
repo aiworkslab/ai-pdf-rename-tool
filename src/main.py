@@ -24,6 +24,10 @@ pdf_files = filedialog.askopenfilenames(
 # 結果表示
 if pdf_files:
     
+    success_count = 0
+    cancel_count = 0
+    error_count = 0
+
     for pdf_file in pdf_files:
         print("選択したファイル:")
         print(pdf_file)
@@ -48,6 +52,7 @@ if pdf_files:
                 "同じ名前のファイルが存在します。"
             )
             print("同じ名前のファイルが存在します。")
+            error_count += 1
         else:
 
             answer = messagebox.askyesno(
@@ -58,12 +63,21 @@ if pdf_files:
             if answer:
                 pdf_path.rename(new_file_path)
                 print("リネームしました。")
+                success_count += 1
                 messagebox.showinfo("完了",
                                     "リネーム完了")
             else:
                 print("リネームをキャンセルしました。")
+                cancel_count += 1
                 messagebox.showinfo("キャンセル",
                         "リネームをキャンセルしました。")
+    
+    messagebox.showinfo(
+        "処理結果",
+        f"成功：{success_count}件\n"
+        f"キャンセル：{cancel_count}件\n"
+        f"エラー：{error_count}件"
+    )
 
 else:
     print("PDFが選択されませんでした。")
