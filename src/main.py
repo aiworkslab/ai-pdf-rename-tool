@@ -64,13 +64,13 @@ if pdf_files:
                 pdf_path.rename(new_file_path)
                 print("リネームしました。")
                 success_count += 1
-                messagebox.showinfo("完了",
-                                    "リネーム完了")
+                # messagebox.showinfo("完了",
+                #                     "リネーム完了")
             else:
                 print("リネームをキャンセルしました。")
                 cancel_count += 1
-                messagebox.showinfo("キャンセル",
-                        "リネームをキャンセルしました。")
+                # messagebox.showinfo("キャンセル",
+                #         "リネームをキャンセルしました。")
     
     messagebox.showinfo(
         "処理結果",
