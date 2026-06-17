@@ -31,7 +31,7 @@ if pdf_files:
     success_files = []
     cancel_files = []
     error_files = []
-    
+
     for pdf_file in pdf_files:
         print("選択したファイル:")
         print(pdf_file)
@@ -57,6 +57,7 @@ if pdf_files:
             )
             print("同じ名前のファイルが存在します。")
             error_count += 1
+            error_files.append(file_name)
         else:
 
             answer = messagebox.askyesno(
@@ -68,19 +69,28 @@ if pdf_files:
                 pdf_path.rename(new_file_path)
                 print("リネームしました。")
                 success_count += 1
+                success_files.append(file_name)
                 # messagebox.showinfo("完了",
                 #                     "リネーム完了")
             else:
                 print("リネームをキャンセルしました。")
                 cancel_count += 1
+                cancel_files.append(file_name)
                 # messagebox.showinfo("キャンセル",
                 #         "リネームをキャンセルしました。")
     
+    success_text = "\n" .join(success_files) if success_files else "なし"
+    cancel_text = "\n" .join(cancel_files) if cancel_files else "なし"
+    error_text = "\n" .join(error_files) if error_files else "なし"
+
     messagebox.showinfo(
         "処理結果",
         f"成功：{success_count}件\n"
+        f"{success_text}\n\n"
         f"キャンセル：{cancel_count}件\n"
+        f"{cancel_text}\n\n"
         f"エラー：{error_count}件"
+        f"{error_text}"
     )
 
 else:
