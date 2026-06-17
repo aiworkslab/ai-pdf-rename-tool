@@ -28,6 +28,10 @@ if pdf_files:
     cancel_count = 0
     error_count = 0
 
+    success_files = []
+    cancel_files = []
+    error_files = []
+    
     for pdf_file in pdf_files:
         print("選択したファイル:")
         print(pdf_file)
