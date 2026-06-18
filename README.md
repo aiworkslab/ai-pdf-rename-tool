@@ -1,5 +1,15 @@
 ## Update History
 
+v1.0
+
+- Added result file list display
+- Show successful, canceled, and error file names
+- Improved final result message after PDF rename processing
+
+- リネーム結果ファイル一覧表示を追加
+- 成功・キャンセル・エラーになったファイル名を表示
+- PDFリネーム後の処理結果を分かりやすく改善
+
 v0.9
 
 - Added rename result summary
