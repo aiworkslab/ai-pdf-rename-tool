@@ -5,6 +5,36 @@ from tkinter import filedialog, messagebox
 import os
 
 
+# 日付を付けた新しいファイル名を作る
+def create_new_file_name(file_name):
+    today = datetime.now().strftime("%Y%m%d")
+    return today + "_" + file_name
+
+
+# 成功・キャンセル・エラーの結果を表示する
+def show_result(
+    success_count,
+    cancel_count,
+    error_count,
+    success_files,
+    cancel_files,
+    error_files
+):
+    success_text = "\n".join(success_files) if success_files else "なし"
+    cancel_text = "\n".join(cancel_files) if cancel_files else "なし"
+    error_text = "\n".join(error_files) if error_files else "なし"
+
+    messagebox.showinfo(
+        "処理結果",
+        f"成功：{success_count}件\n"
+        f"{success_text}\n\n"
+        f"キャンセル：{cancel_count}件\n"
+        f"{cancel_text}\n\n"
+        f"エラー：{error_count}件\n"
+        f"{error_text}"
+    )
+
+
 # メインウィンドウを非表示
 root = tk.Tk()
 root.withdraw()
@@ -38,8 +68,7 @@ if pdf_files:
         
         file_name = os.path.basename(pdf_file)
 
-        today = datetime.now().strftime("%Y%m%d")
-        new_file_name = today + "_" + file_name
+        new_file_name = create_new_file_name(file_name)
         
         pdf_path = Path(pdf_file)
         new_file_path = pdf_path.parent / new_file_name
@@ -69,7 +98,7 @@ if pdf_files:
                 pdf_path.rename(new_file_path)
                 print("リネームしました。")
                 success_count += 1
-                success_files.append(file_name)
+                success_files.append(new_file_name)
                 # messagebox.showinfo("完了",
                 #                     "リネーム完了")
             else:
@@ -79,18 +108,13 @@ if pdf_files:
                 # messagebox.showinfo("キャンセル",
                 #         "リネームをキャンセルしました。")
     
-    success_text = "\n" .join(success_files) if success_files else "なし"
-    cancel_text = "\n" .join(cancel_files) if cancel_files else "なし"
-    error_text = "\n" .join(error_files) if error_files else "なし"
-
-    messagebox.showinfo(
-        "処理結果",
-        f"成功：{success_count}件\n"
-        f"{success_text}\n\n"
-        f"キャンセル：{cancel_count}件\n"
-        f"{cancel_text}\n\n"
-        f"エラー：{error_count}件"
-        f"{error_text}"
+    show_result(
+        success_count,
+        cancel_count,
+        error_count,
+        success_files,
+        cancel_files,
+        error_files
     )
 
 else:
