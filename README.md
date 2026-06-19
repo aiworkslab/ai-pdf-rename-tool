@@ -1,5 +1,15 @@
 ## Update History
 
+v1.1
+
+- Refactored filename creation process
+- Refactored result display process
+- Improved code readability without changing existing behavior
+
+- ファイル名作成処理を関数化
+- 処理結果表示を関数化
+- 既存機能を変えずにコードを読みやすく整理
+
 v1.0
 
 - Added result file list display
