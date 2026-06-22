@@ -1,5 +1,15 @@
 ## Update History
 
+v1.2
+
+- Refactored single PDF processing into a function
+- Separated PDF processing from result counting
+- Improved code maintainability without changing existing behavior
+
+- PDF1件分の処理を関数化
+- PDF処理と結果集計の役割を分離
+- 既存機能を変えずにコードを保守しやすく改善
+
 v1.1
 
 - Refactored filename creation process
