@@ -11,6 +11,50 @@ def create_new_file_name(file_name):
     return today + "_" + file_name
 
 
+# PDFファイルを1件処理し、結果と記録するファイル名を返す
+def process_pdf_file(pdf_file):
+    print("選択したファイル:")
+    print(pdf_file)
+
+    file_name = os.path.basename(pdf_file)
+
+    new_file_name = create_new_file_name(file_name)
+
+    pdf_path = Path(pdf_file)
+    new_file_path = pdf_path.parent / new_file_name
+
+    print("\n変更前ファイル名:")
+    print(file_name)
+
+    print("\n変更後ファイル名:")
+    print(new_file_name)
+
+    if new_file_path.exists():
+        messagebox.showerror(
+            "エラー",
+            "同じ名前のファイルが存在します。"
+        )
+        print("同じ名前のファイルが存在します。")
+        return "error", file_name
+
+    answer = messagebox.askyesno(
+        "確認",
+        f"この名前でリネームしますか？\n\n{new_file_name}"
+    )
+
+    if answer:
+        pdf_path.rename(new_file_path)
+        print("リネームしました。")
+        # messagebox.showinfo("完了",
+        #                     "リネーム完了")
+        return "success", new_file_name
+
+    print("リネームをキャンセルしました。")
+    # messagebox.showinfo("キャンセル",
+    #         "リネームをキャンセルしました。")
+    return "cancel", file_name
+
+
 # 成功・キャンセル・エラーの結果を表示する
 def show_result(
     success_count,
@@ -63,50 +107,17 @@ if pdf_files:
     error_files = []
 
     for pdf_file in pdf_files:
-        print("選択したファイル:")
-        print(pdf_file)
-        
-        file_name = os.path.basename(pdf_file)
+        result, recorded_file_name = process_pdf_file(pdf_file)
 
-        new_file_name = create_new_file_name(file_name)
-        
-        pdf_path = Path(pdf_file)
-        new_file_path = pdf_path.parent / new_file_name
-
-        print("\n変更前ファイル名:")
-        print(file_name)
-
-        print("\n変更後ファイル名:")
-        print(new_file_name)
-
-        if new_file_path.exists():
-            messagebox.showerror(
-                "エラー",
-                "同じ名前のファイルが存在します。"
-            )
-            print("同じ名前のファイルが存在します。")
+        if result == "success":
+            success_count += 1
+            success_files.append(recorded_file_name)
+        elif result == "cancel":
+            cancel_count += 1
+            cancel_files.append(recorded_file_name)
+        elif result == "error":
             error_count += 1
-            error_files.append(file_name)
-        else:
-
-            answer = messagebox.askyesno(
-                "確認",
-                f"この名前でリネームしますか？\n\n{new_file_name}"
-            )
-
-            if answer:
-                pdf_path.rename(new_file_path)
-                print("リネームしました。")
-                success_count += 1
-                success_files.append(new_file_name)
-                # messagebox.showinfo("完了",
-                #                     "リネーム完了")
-            else:
-                print("リネームをキャンセルしました。")
-                cancel_count += 1
-                cancel_files.append(file_name)
-                # messagebox.showinfo("キャンセル",
-                #         "リネームをキャンセルしました。")
+            error_files.append(recorded_file_name)
     
     show_result(
         success_count,
