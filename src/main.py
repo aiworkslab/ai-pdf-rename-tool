@@ -79,58 +79,63 @@ def show_result(
     )
 
 
-# メインウィンドウを非表示
-root = tk.Tk()
-root.withdraw()
+def main():
+    # メインウィンドウを非表示
+    root = tk.Tk()
+    root.withdraw()
 
-# PDF選択
-# pdf_file = filedialog.askopenfilename(
-#     title="PDFファイルを選択してください",
-#     filetypes=[("PDFファイル", "*.pdf")]
-# )
+    # PDF選択
+    # pdf_file = filedialog.askopenfilename(
+    #     title="PDFファイルを選択してください",
+    #     filetypes=[("PDFファイル", "*.pdf")]
+    # )
 
-# PDF選択
-pdf_files = filedialog.askopenfilenames(
-    title="PDFファイルを選択してください",
-    filetypes=[("PDFファイル", "*.pdf")]
-)
-
-# 結果表示
-if pdf_files:
-    
-    success_count = 0
-    cancel_count = 0
-    error_count = 0
-
-    success_files = []
-    cancel_files = []
-    error_files = []
-
-    for pdf_file in pdf_files:
-        result, recorded_file_name = process_pdf_file(pdf_file)
-
-        if result == "success":
-            success_count += 1
-            success_files.append(recorded_file_name)
-        elif result == "cancel":
-            cancel_count += 1
-            cancel_files.append(recorded_file_name)
-        elif result == "error":
-            error_count += 1
-            error_files.append(recorded_file_name)
-    
-    show_result(
-        success_count,
-        cancel_count,
-        error_count,
-        success_files,
-        cancel_files,
-        error_files
+    # PDF選択
+    pdf_files = filedialog.askopenfilenames(
+        title="PDFファイルを選択してください",
+        filetypes=[("PDFファイル", "*.pdf")]
     )
 
-else:
-    print("PDFが選択されませんでした。")
-    messagebox.showinfo("未選択",
-                        "PDFが選択されませんでした。")
+    # 結果表示
+    if pdf_files:
 
-# input("Press Enter to exit...")
+        success_count = 0
+        cancel_count = 0
+        error_count = 0
+
+        success_files = []
+        cancel_files = []
+        error_files = []
+
+        for pdf_file in pdf_files:
+            result, recorded_file_name = process_pdf_file(pdf_file)
+
+            if result == "success":
+                success_count += 1
+                success_files.append(recorded_file_name)
+            elif result == "cancel":
+                cancel_count += 1
+                cancel_files.append(recorded_file_name)
+            elif result == "error":
+                error_count += 1
+                error_files.append(recorded_file_name)
+
+        show_result(
+            success_count,
+            cancel_count,
+            error_count,
+            success_files,
+            cancel_files,
+            error_files
+        )
+
+    else:
+        print("PDFが選択されませんでした。")
+        messagebox.showinfo("未選択",
+                            "PDFが選択されませんでした。")
+
+    # input("Press Enter to exit...")
+
+
+if __name__ == "__main__":
+    main()
