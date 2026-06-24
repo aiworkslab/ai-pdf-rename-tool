@@ -1,5 +1,15 @@
 ## Update History
 
+v1.3
+
+- Organized the main program flow into a main function
+- Separated application startup from individual processing functions
+- Improved code readability without changing existing behavior
+
+- プログラム全体の流れをmain関数に整理
+- アプリ開始処理と個別処理の役割を分離
+- 既存機能を変えずにコードを読みやすく改善
+
 v1.2
 
 - Refactored single PDF processing into a function
