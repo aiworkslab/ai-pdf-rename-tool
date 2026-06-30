@@ -49,3 +49,15 @@ English / Japanese
 Example:
 
 Add rename result file list display / リネーム結果ファイル一覧表示追加
+
+## Git and File Safety Rules
+
+* Never run git init.
+* Never create, move, delete, or modify .git folders.
+* Never create files inside .git folders.
+* Never create a nested Git repository.
+* Do not commit, push, change branches, change remotes, or change Git settings.
+* Do not move, rename, or delete project files unless explicitly requested.
+* If a new file or folder is needed, explain why and wait for approval before creating it.
+* Before editing a file, explain the planned changes and wait for approval.
+* Work only on files explicitly named by the user.
